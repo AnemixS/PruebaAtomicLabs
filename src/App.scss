@@ -1,0 +1,139 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+$mainBlue: #0a2240;
+$mainRed: #fa4d09;
+$spaceBlue: #001e48;
+$highlight: #e9f1f6;
+$lightGray: #eaeaea;
+
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "main-blue": $mainBlue,
+    "main-red": $mainRed,
+    "space-blue": $spaceBlue,
+    "highlight": $highlight,
+    "light-gray": $lightGray,
+  )
+);
+
+$font-sizes: map-merge(
+  $font-sizes,
+  (
+    "lg": $spacer * 3,
+    "xl": $spacer * 4,
+    "2xl": $spacer * 6,
+    "4xl": $spacer * 8,
+  )
+);
+
+@import "bootstrap";
+
+body {
+  background-image: url("./assets/body-bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: white;
+  background-color: $spaceBlue;
+}
+
+.vh-75 {
+  height: 75vh;
+}
+
+.vh-25 {
+  height: 25vh;
+}
+
+
+.btn-hover{
+  &:hover {
+    background-color: white;
+  }
+}
+.feature-card {
+  box-shadow: 0 0.5rem 1rem #00000080;
+  h3 {
+    color: $mainRed;
+  }
+  &.active {
+    background-color: $mainRed;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+    z-index: 9999;
+    h3,
+    li {
+      color: white;
+    }
+  }
+  &.bullet {
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  }
+}
+
+.features-table {
+  margin-bottom: 0;
+  tr {
+    td:nth-child(1), td:nth-child(2) {
+      border-right: 1px solid #ddd;
+    }
+    &:last-of-type {
+      td {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.custom-breadcrumb {
+  .indicator {
+    font-size: $spacer;
+    border-radius: 100%;
+    width: $spacer * 2;
+    height: $spacer * 2;
+    border: 2px solid $highlight;
+    color: $lightGray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.current {
+      background-color: $mainRed;
+      color: white;
+      border-color: $mainRed;
+    }
+  }
+}
+
+.mycheck {
+  cursor: pointer;
+  background-color: $mainBlue;
+  background-image: url("./assets/check.png");
+  width: 18px;
+  height: 18px;
+  appearance: none;
+  background-size: auto;
+}
+
+.mycheck:disabled {
+  background-color: white;
+  background-image: none;
+} 
+
+.mycheck:checked{
+  background-color: #fff;
+  background-image: url("./assets/check.png");
+}
+
+.mycheck:focus, .mycheck:hover {
+  border: none;
+  box-shadow: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
